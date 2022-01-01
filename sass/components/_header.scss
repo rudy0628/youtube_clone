@@ -1,0 +1,891 @@
+.header {
+	// banner
+	&__banner {
+		display: flex;
+		align-items: center;
+	}
+
+	&__menu {
+		background: none;
+		border: none;
+		cursor: pointer;
+	}
+
+	&__menu--icon {
+		height: 2.6rem;
+		width: 2.6rem;
+		color: $color-white-1;
+		margin-right: 0.4rem;
+	}
+
+	.bg-light &__menu--icon {
+		color: $color-black-3;
+	}
+
+	&__logo--link {
+		position: relative;
+	}
+
+	&__country {
+		position: absolute;
+		top: 1.5rem;
+		right: 0.3rem;
+		color: $color-white-3;
+	}
+
+	.bg-light &__country {
+		color: $color-black-4;
+	}
+
+	&__logo {
+		display: block;
+		height: 7rem;
+	}
+
+	// search
+	&__search {
+		display: flex;
+		align-items: center;
+		width: 70rem;
+		margin: 0rem 2rem;
+
+		@media only screen and (max-width: $bp-large) {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 6.5rem;
+			margin: 0;
+			opacity: 0;
+			visibility: hidden;
+			padding: 1rem;
+			background-color: $color-black-2;
+			z-index: 2;
+
+			.search-open & {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+
+		&--input-field {
+			flex: 1;
+			max-width: 100%;
+			margin-right: 0rem;
+			position: relative;
+			z-index: 5;
+		}
+
+		&--input {
+			width: 100%;
+			background-color: $color-black-1;
+			height: 4rem;
+			padding: 1rem;
+			font-size: 1.6rem;
+			border: none;
+
+			&:focus {
+				color: $color-white-1;
+				outline: 1px solid $color-secondary;
+			}
+		}
+
+		.bg-light &--input {
+			background-color: $color-white-1;
+			border: 1px solid $color-white-3;
+
+			&:focus {
+				color: $color-black-2;
+			}
+		}
+
+		&--input:focus + &--recommend {
+			display: block;
+		}
+
+		&--btn {
+			height: 4rem;
+			padding: 0rem 2rem;
+			background-color: $color-black-3;
+			border: none;
+			cursor: pointer;
+			margin-right: 1.2rem;
+			white-space: nowrap;
+
+			&-back {
+				background: none;
+				height: 3rem;
+				height: 4.5rem;
+				width: 4rem;
+				display: none;
+				padding: 0rem;
+				margin-right: 1.2rem;
+			}
+
+			@media only screen and (max-width: $bp-large) {
+				&-back {
+					display: block;
+				}
+			}
+
+			@media only screen and (max-width: $bp-medium) {
+				margin-right: 3rem;
+				&-back {
+					margin-right: 1.2rem;
+				}
+			}
+		}
+
+		.bg-light &--btn {
+			background-color: $color-white-2;
+			border: 1px solid $color-white-3;
+			border-left: none;
+		}
+
+		&--icon {
+			height: 2rem;
+			width: 2rem;
+			color: $color-white-1;
+		}
+
+		.bg-light &--icon {
+			color: $color-black-3;
+		}
+
+		&--voice {
+			height: 4rem;
+			width: 4rem;
+			border-radius: 50%;
+			background-color: $color-black-1;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			white-space: nowrap;
+			margin-right: 3rem;
+
+			@media only screen and (max-width: $bp-medium) {
+				display: none;
+			}
+		}
+
+		.bg-light &--voice {
+			background-color: $color-white-2;
+		}
+
+		&--recommend {
+			padding: 1rem 0rem;
+			position: absolute;
+			top: 4rem;
+			left: 0;
+			z-index: 5;
+			height: auto;
+			background-color: $color-white-1;
+			width: 100%;
+			display: none;
+
+			&-list {
+			}
+
+			&-item {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 0.4rem 1rem;
+			}
+
+			&-item:hover {
+				background-color: $color-white-2;
+			}
+
+			&-link:link,
+			&-link:visited {
+				flex: 1;
+				cursor: default;
+				font-size: 1.5rem;
+				font-weight: 700;
+				text-decoration: none;
+			}
+
+			&-remove:link,
+			&-remove:visited {
+				margin-right: 1rem;
+				color: $color-secondary;
+				text-decoration: none;
+			}
+
+			&-remove:hover,
+			&-remove:active {
+				text-decoration: underline;
+			}
+		}
+	}
+
+	// header
+	&__nav {
+		&--list {
+			display: flex;
+			align-items: center;
+			list-style: none;
+		}
+
+		&--item {
+			position: relative;
+
+			&:not(:last-child) {
+				margin-right: 2.4rem;
+			}
+
+			&-notifications {
+				position: relative;
+			}
+
+			&-search,
+			&-mic {
+				display: none;
+			}
+
+			@media only screen and (max-width: $bp-large) {
+				&-search,
+				&-mic {
+					display: block;
+				}
+
+				&:not(:last-child) {
+					margin-right: 1.8rem;
+				}
+			}
+
+			@media only screen and (max-width: $bp-medium) {
+				&-mic,
+				&-notifications {
+					display: none;
+				}
+
+				&:not(:last-child) {
+					margin-right: 1.4rem;
+				}
+			}
+		}
+
+		&--link {
+			background: none;
+			border: none;
+			cursor: pointer;
+		}
+
+		&--icon {
+			height: 2.4rem;
+			width: 2.4rem;
+			color: $color-white-1;
+
+			@media only screen and (max-width: $bp-large) {
+				height: 2rem;
+				width: 2rem;
+			}
+		}
+
+		.bg-light &--icon {
+			color: $color-black-3;
+		}
+
+		&--img {
+			border-radius: 50%;
+		}
+
+		&--notify {
+			position: absolute;
+			top: -0.4rem;
+			right: -0.3rem;
+			height: 1.6rem;
+			width: 1.6rem;
+			background-color: $color-tertiary;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 50%;
+			font-weight: 700;
+
+			@media only screen and (max-width: $bp-large) {
+				height: 1.4rem;
+				width: 1.4rem;
+				font-size: 0.8rem;
+			}
+		}
+
+		.bg-light &--notify {
+			color: $color-white-1;
+		}
+
+		&--build-droplist {
+			position: absolute;
+			top: 4rem;
+			left: -1rem;
+			width: 15rem;
+			background-color: $color-black-2;
+			border-left: 1px solid $color-black-4;
+			border-right: 1px solid $color-black-4;
+			border-bottom: 1px solid $color-black-4;
+			display: none;
+
+			@media only screen and (max-width: $bp-medium) {
+				left: auto;
+				right: -1rem;
+			}
+			&-list {
+				list-style: none;
+				padding: 1rem 0;
+			}
+
+			&-item {
+			}
+
+			&-icon {
+				height: 2rem;
+				width: 2rem;
+				margin-right: 1.2rem;
+			}
+
+			&-link:link,
+			&-link:visited {
+				text-decoration: none;
+				display: flex;
+				padding: 1rem 1.6rem;
+				color: $color-white-1;
+				font-size: 1.4rem;
+				align-items: center;
+			}
+
+			&-link:hover,
+			&-link:active {
+				background-color: rgba($color-white-1, 0.15);
+			}
+		}
+
+		.bg-light &--build-droplist {
+			background-color: $color-white-1;
+			border-left: 1px solid $color-white-3;
+			border-right: 1px solid $color-white-3;
+			border-bottom: 1px solid $color-white-3;
+			&-link:link,
+			&-link:visited {
+				color: $color-black-2;
+			}
+
+			&-link:hover,
+			&-link:active {
+				background-color: rgba($color-black-2, 0.1);
+			}
+		}
+
+		&--app-droplist {
+			position: absolute;
+			top: 4rem;
+			right: -1rem;
+			width: 25rem;
+
+			background-color: $color-black-2;
+			border-left: 1px solid $color-black-4;
+			border-right: 1px solid $color-black-4;
+			border-bottom: 1px solid $color-black-4;
+
+			padding: 0.8rem 0rem;
+
+			display: none;
+			&-list {
+				list-style: none;
+				padding: 0.8rem 0;
+				margin: 0.8rem 0;
+				border-top: 1px solid $color-black-4;
+				border-bottom: 1px solid $color-black-4;
+			}
+
+			&-item {
+			}
+
+			&-icon {
+				height: 3rem;
+				width: 3rem;
+				margin-right: 1.2rem;
+			}
+
+			&-link:link,
+			&-link:visited {
+				text-decoration: none;
+				display: flex;
+				padding: 0.6rem 1.2rem;
+				color: $color-white-1;
+				font-size: 1.4rem;
+				align-items: center;
+			}
+
+			&-link:hover,
+			&-link:active {
+				background-color: rgba($color-white-1, 0.15);
+			}
+		}
+
+		.bg-light &--app-droplist {
+			background-color: $color-white-1;
+			border-left: 1px solid $color-white-3;
+			border-right: 1px solid $color-white-3;
+			border-bottom: 1px solid $color-white-3;
+			&-list {
+				border-top: 1px solid $color-white-3;
+				border-bottom: 1px solid $color-white-3;
+			}
+
+			&-link:link,
+			&-link:visited {
+				color: $color-black-2;
+			}
+
+			&-link:hover,
+			&-link:active {
+				background-color: rgba($color-black-2, 0.1);
+			}
+		}
+
+		&--notify-droplist {
+			position: absolute;
+			top: -1rem;
+			right: 3rem;
+			width: 50rem;
+			z-index: 6;
+
+			background-color: $color-black-2;
+			border-left: 1px solid $color-black-4;
+			border-right: 1px solid $color-black-4;
+			border-bottom: 1px solid $color-black-4;
+
+			// padding: 0.8rem 0rem;
+
+			display: none;
+
+			@media only screen and (max-width: $bp-large) {
+				top: 4rem;
+				right: -1rem;
+			}
+
+			@media only screen and (max-width: $bp-midToLarge) {
+				top: 4rem;
+				right: -7rem;
+			}
+
+			&-header {
+				padding: 1.55rem 1.4rem 1.55rem;
+				border-bottom: 1px solid $color-black-4;
+				font-size: 1.6rem;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+
+				& a {
+					text-decoration: none;
+					display: flex;
+					justify-content: flex-end;
+					color: $color-white-1;
+				}
+			}
+
+			&-list {
+				list-style: none;
+				height: 60vh;
+				overflow-y: scroll;
+
+				&::-webkit-scrollbar {
+					width: 7px;
+				}
+
+				&::-webkit-scrollbar-thumb {
+					background-color: transparent;
+				}
+
+				&:hover {
+					&::-webkit-scrollbar-thumb {
+						background-color: #888;
+					}
+				}
+			}
+
+			&-item {
+				display: flex;
+				padding: 1.4rem 1.4rem 1.4rem 0;
+				position: relative;
+				&:hover {
+					background-color: rgba($color-white-1, 0.15);
+				}
+			}
+
+			&-icon {
+				height: 2rem;
+				width: 2rem;
+				margin-right: 1.2rem;
+			}
+
+			&-link {
+				text-decoration: none;
+				display: flex;
+				color: $color-white-1;
+				font-size: 1.4rem;
+				align-items: flex-start;
+				align-self: flex-start;
+				cursor: pointer;
+				background: none;
+				border: none;
+			}
+
+			.bg-light &-link {
+				color: $color-black-2;
+			}
+
+			&-option {
+				opacity: 0;
+			}
+
+			&-item:hover &-option {
+				opacity: 1;
+			}
+
+			&-channel {
+				height: 5rem;
+				margin-right: 1.2rem;
+				border-radius: 50%;
+			}
+
+			&-img {
+				height: 7rem;
+				margin-right: 1.4rem;
+			}
+
+			&-dot {
+				border-radius: 50%;
+				background-color: $color-secondary;
+				padding: 0.2rem;
+				margin: 2.4rem 1rem 0;
+				justify-self: center;
+			}
+
+			&-text {
+				margin-right: 1.4rem;
+			}
+
+			&-title {
+				margin-bottom: 1.2rem;
+			}
+
+			&-upload {
+				color: $color-white-3;
+				font-size: 1.2rem;
+			}
+		}
+
+		.bg-light &--notify-droplist {
+			background-color: $color-white-1;
+			border-left: 1px solid $color-white-3;
+			border-right: 1px solid $color-white-3;
+			border-bottom: 1px solid $color-white-3;
+
+			&-header {
+				border-bottom: 1px solid $color-white-3;
+			}
+
+			&-list {
+				border-top: 1px solid $color-white-3;
+				border-bottom: 1px solid $color-white-3;
+			}
+
+			&-item {
+				&:hover {
+					background-color: rgba($color-black-2, 0.1);
+				}
+			}
+
+			&-link:link,
+			&-link:visited {
+				color: $color-black-2;
+			}
+
+			&-upload {
+				color: $color-black-4;
+			}
+		}
+
+		&--notify-option {
+			position: absolute;
+			top: 4rem;
+			right: 2rem;
+			width: 25rem;
+			background-color: $color-black-2;
+			z-index: 7;
+			display: none;
+
+			&-list {
+				list-style: none;
+				padding: 1rem 0;
+				border-bottom: 1px solid $color-black-4;
+			}
+
+			&-item {
+			}
+
+			&-icon {
+				height: 2rem;
+				width: 2rem;
+				margin-right: 1.2rem;
+			}
+
+			&-link {
+				text-decoration: none;
+				display: flex;
+				padding: 1rem 1.6rem;
+				color: $color-white-1;
+				border: none;
+				font-size: 1.4rem;
+				align-items: center;
+				width: 100%;
+				background-color: $color-black-2;
+				cursor: pointer;
+			}
+
+			&-link:hover {
+				background-color: rgba($color-white-1, 0.15);
+			}
+		}
+
+		.notify-option-open &--notify-option {
+			display: block;
+		}
+
+		.bg-light &--notify-option {
+			background-color: $color-white-1;
+
+			&-list {
+				border-bottom: 1px solid $color-white-3;
+			}
+
+			&-link {
+				color: $color-black-2;
+				background-color: $color-white-1;
+			}
+
+			&-link:hover {
+				background-color: rgba($color-black-2, 0.1);
+			}
+		}
+
+		&--profile-droplist {
+			position: absolute;
+			top: -0.3rem;
+			right: 5rem;
+			width: 30rem;
+			background-color: $color-black-2;
+			border-left: 1px solid $color-black-4;
+			border-right: 1px solid $color-black-4;
+			border-bottom: 1px solid $color-black-4;
+			display: none;
+
+			@media only screen and (max-width: $bp-medium) {
+				right: 4rem;
+			}
+			&-body {
+				overflow-y: scroll;
+				height: 80vh;
+
+				&::-webkit-scrollbar {
+					width: 7px;
+				}
+
+				&::-webkit-scrollbar-thumb {
+					background-color: transparent;
+					border-radius: 150px;
+				}
+
+				&:hover {
+					&::-webkit-scrollbar-thumb {
+						background-color: #888;
+					}
+				}
+			}
+
+			&-list {
+				list-style: none;
+				padding: 1rem 0;
+				border-bottom: 1px solid $color-black-4;
+			}
+
+			&-item {
+			}
+
+			&-icon {
+				height: 2rem;
+				width: 2rem;
+				margin-right: 1.2rem;
+			}
+
+			&-right {
+				margin-left: auto;
+			}
+
+			&-strict {
+				margin: 1rem 0;
+			}
+
+			&-link,
+			&-link:link,
+			&-link:visited {
+				text-decoration: none;
+				display: flex;
+				padding: 1rem 1.6rem;
+				color: $color-white-1;
+				font-size: 1.4rem;
+				align-items: center;
+
+				// button
+				width: 100%;
+				background: none;
+				border: none;
+				cursor: pointer;
+			}
+
+			&-link:hover,
+			&-link:active {
+				background-color: rgba($color-white-1, 0.15);
+			}
+
+			&-header {
+				display: flex;
+				align-items: flex-start;
+				padding: 1.4rem;
+				border-bottom: 1px solid $color-black-4;
+			}
+
+			&-avatar {
+				border-radius: 50%;
+				height: 4rem;
+				width: 4rem;
+				margin-right: 1.4rem;
+			}
+
+			&-username {
+				font-size: 1.6rem;
+				font-weight: 700;
+				margin-bottom: 1rem;
+			}
+
+			&-manage {
+				color: $color-secondary;
+				text-decoration: none;
+				font-size: 1.4rem;
+			}
+		}
+
+		.bg-light &--profile-droplist {
+			background-color: $color-white-1;
+			border-left: 1px solid $color-white-3;
+			border-right: 1px solid $color-white-3;
+			border-bottom: 1px solid $color-white-3;
+
+			&-header {
+				border-bottom: 1px solid $color-white-3;
+			}
+
+			&-list {
+				list-style: none;
+				padding: 1rem 0;
+				border-bottom: 1px solid $color-white-3;
+			}
+
+			&-link,
+			&-link:link,
+			&-link:visited {
+				color: $color-black-2;
+			}
+
+			&-link:hover,
+			&-link:active {
+				background-color: rgba($color-black-2, 0.1);
+			}
+
+			&-upload {
+				color: $color-black-4;
+			}
+		}
+	}
+
+	.droplist-open &__nav--build-droplist,
+	.droplist-open &__nav--app-droplist,
+	.droplist-open &__nav--notify-droplist,
+	.droplist-open &__nav--profile-droplist {
+		display: block;
+	}
+}
+.mobile-header {
+	// banner
+	&__banner {
+		display: flex;
+		align-items: center;
+		width: 24rem;
+		height: 6.5rem;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 1000;
+		background-color: $color-black-2;
+		padding: 0rem 2rem;
+		opacity: 0;
+		visibility: hidden;
+		transition: all 0.2s;
+		transform: translateX(-100%);
+	}
+
+	.bg-light &__banner {
+		background-color: $color-white-1;
+	}
+
+	&__menu {
+		background: none;
+		border: none;
+		cursor: pointer;
+	}
+
+	&__menu--icon {
+		height: 2.6rem;
+		width: 2.6rem;
+		color: $color-white-1;
+		margin-right: 0.4rem;
+	}
+
+	.bg-light &__menu--icon {
+		color: $color-dark;
+	}
+
+	&__logo--link {
+		position: relative;
+	}
+
+	&__country {
+		position: absolute;
+		top: 1.5rem;
+		right: 0.3rem;
+		color: $color-white-3;
+	}
+
+	.bg-light &__country {
+		color: $color-black-4;
+	}
+
+	&__logo {
+		display: block;
+		height: 7rem;
+	}
+}
+
+@media only screen and (max-width: $bp-largest) {
+	.nav-open .mobile-header {
+		&__banner {
+			opacity: 1;
+			visibility: visible;
+			transform: translateX(0%);
+		}
+	}
+}

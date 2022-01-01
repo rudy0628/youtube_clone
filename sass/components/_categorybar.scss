@@ -1,0 +1,71 @@
+.category {
+	&__list {
+		display: flex;
+		list-style: none;
+		align-items: center;
+		justify-content: space-between;
+		overflow-x: auto;
+		padding: 1.2rem 4rem 0.6rem;
+
+		&::-webkit-scrollbar {
+			height: 0.6rem;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background-color: transparent;
+			border-radius: 150px;
+		}
+	}
+
+	&__list:hover {
+		&::-webkit-scrollbar-thumb {
+			background-color: #888;
+		}
+	}
+
+	&__btn {
+		border: 1px solid $color-black-4;
+		border-radius: 150px;
+		background-color: $color-black-3;
+		padding: 0.7rem 1.4rem;
+		height: 3.6rem;
+		color: $color-white-1;
+		cursor: pointer;
+		transition: all 0.3s;
+		white-space: nowrap;
+		margin-right: 1.2rem;
+
+		&:hover {
+			background-color: $color-black-4;
+			border: 1px solid $color-black-5;
+		}
+
+		&--select {
+			background-color: $color-white-1;
+			border: 1px solid $color-white-1;
+			color: $color-black-2;
+
+			&:hover {
+				background: $color-white-1;
+				border: 1px solid $color-white-1;
+			}
+		}
+	}
+
+	.bg-light &__btn {
+		background-color: $color-white-2;
+		border: 1px solid $color-white-3;
+		color: $color-black-3;
+
+		&:hover {
+			border: 1px solid $color-black-5;
+			background-color: $color-white-3;
+		}
+
+		&--select {
+			background-color: $color-black-2;
+			border: 1px solid $color-black-2;
+			color: $color-white-1;
+		}
+	}
+}
